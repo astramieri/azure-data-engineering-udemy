@@ -1,0 +1,18 @@
+CREATE TABLE Orders
+(
+    OrderID VARCHAR(100) NOT NULL,
+    CourseID VARCHAR(100),
+    StudentID VARCHAR(100),
+    DiscountPercent INT
+);
+
+ALTER TABLE Orders
+ADD CONSTRAINT PK_Order PRIMARY KEY (OrderID);
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_Order_1 FOREIGN KEY (CourseID) REFERENCES Course(CourseID); 
+
+ALTER TABLE Orders
+ADD CONSTRAINT FK_Order_2 FOREIGN KEY (StudentID) REFERENCES Student(StudentID); 
+
+
