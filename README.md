@@ -20,4 +20,5 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 ### 3. Design and implement data storage
 
 - [Azure SQL Database](./docs/module_3/azure_sql_database.md)
+- [Azure Synapse](./docs/module_3/azure_synapse.md)
 - [Transact-SQL](./docs/module_3/transact_sql.md)
