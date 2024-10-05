@@ -12,3 +12,5 @@ You could try to view the CSV file, but if the file is large, how do you analyze
 
 If you quickly want to go ahead and analyze the data, you can actually make use of the **built-in serverless SQL pool** that allows you to query data in an Azure Data Lake Gen2 storage account.
 
+**NOTE. You are not charged based on the compute of the serverless SQL pool. You are charged based on the data that's being processed by queries.**
+
