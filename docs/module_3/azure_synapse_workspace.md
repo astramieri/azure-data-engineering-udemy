@@ -14,3 +14,49 @@ If you quickly want to go ahead and analyze the data, you can actually make use 
 
 **NOTE. You are not charged based on the compute of the serverless SQL pool. You are charged based on the data that's being processed by queries.**
 
+## Using an External Table 
+
+0. (Optional) Create a credential
+
+```
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>'
+
+CREATE DATABASE SCOPED CREDENTIAL <credential_name>
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
+SECRET = '<sas_token>'
+```
+
+1. Create an external data source
+
+```
+CREATE EXTERNAL DATA SOURCE <data_source_name>
+WITH (
+    LOCATION='<prefix>://<path>'
+    [, CREDENTIAL = <credential_name>]
+)
+```
+
+2. Create an external file format
+
+```
+CREATE EXTERNAL FILE FORMAT <file_format_name>
+WITH (
+    FORMAT_TYPE = DELIMITEDTEXT
+    [, FORMAT_OPTIONS (..)]
+    [, DATA COMPRESSION = ..]
+)
+```
+
+3. Create an external table
+
+```
+CREATE EXTERNAL TABLE <external_table_name>
+(
+ ...
+)
+WITH (
+    LOCATION = '/<file_name>'
+    DATA_SOURCE = <data_source_name>
+    FILE_FORMAT = <file_format_name>
+)
+```
