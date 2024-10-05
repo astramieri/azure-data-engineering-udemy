@@ -21,4 +21,5 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 
 - [Azure SQL Database](./docs/module_3/azure_sql_database.md)
 - [Azure Synapse](./docs/module_3/azure_synapse.md)
+- [Azure Synapse Workspace](./docs/module_3/azure_synapse_workspace.md)
 - [Transact-SQL](./docs/module_3/transact_sql.md)
