@@ -14,6 +14,25 @@ If you quickly want to go ahead and analyze the data, you can actually make use 
 
 **NOTE. You are not charged based on the compute of the serverless SQL pool. You are charged based on the data that's being processed by queries.**
 
+## Reading a JSON file with OPENROWSET function
+
+```
+SELECT 
+*
+-- JSON_VALUE(jsonContent), '$.<field_name>') as fieldName
+FROM OPENROWSET (
+    BULK '<file_url>'
+    FORMAT = 'csv'
+    FIELDTERMINATOR = '0x0b'
+    FIELDQUOTE = '0x0b',
+    ROWTERMINATOR = '0x0a'
+)
+WITH (
+    jsonContent varchar(MAX)
+)
+AS ROWS
+```
+
 ## Using an External Table 
 
 0. (Optional) Create a credential
