@@ -25,3 +25,4 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 - [Dedicated SQL Pool](./docs/module_3/dedicated_sql_pool.md)
 - [Microsoft Entra ID](./docs/module_3/microsoft_entra_id.md)
 - [Transact-SQL](./docs/module_3/transact_sql.md)
+- [PolyBase](./docs/module_3/polybase.md)

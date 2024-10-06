@@ -22,3 +22,4 @@ With the Serverless SQL pool, you can just define the table schema, but the data
 If you need to persist the data in actual tables and query them via SQL, you need to a SQL data warehouse in place. You can host a SQL data warehouse with the help of dedicated SQL pool.
 
 **NOTE**. In the dedicated SQL pool, in addition to creating our normal tables, you can also create external tables as well.
+
