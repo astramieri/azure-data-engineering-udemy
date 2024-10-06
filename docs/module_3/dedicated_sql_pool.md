@@ -14,3 +14,9 @@ With decoupled storage and compute, when using Synapse SQL one can benefit from 
 - resume compute capacity during operational hours
 
 ![Dedicated SQL Pool](../../images/dedicated_sql_pool.png)
+
+## Dedicated SQL Pool vs Serverless SQL Pool
+
+With the Serverless SQL pool, you can just define the table schema, but the data itself resides in external storage.
+
+If you need to persist the data in actual tables and query them via SQL, you need to a SQL data warehouse in place. You can host a SQL data warehouse with the help of dedicated SQL pool.
