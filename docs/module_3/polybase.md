@@ -5,3 +5,18 @@
 Polybase has the capability to integrate data from a variety of sources and platforms, including Microsoft SQL Server, Oracle, Teradata, and others. 
 
 Polybase provides a single platform for accessing data and querying it in a variety of ways, making it an ideal tool for business intelligence (BI) and data analytics.
+
+## COPY INTO command
+
+```
+COPY INTO <table_name>
+FROM '<file_url>'
+WITH (
+    FILE_TYPE = 'CSV'
+    FIRSTROW = 2
+    CREDENTIAL = (
+        IDENTITY = 'Shared Access Signature'
+        SECRET = '<secret>'
+    )
+)
+```
