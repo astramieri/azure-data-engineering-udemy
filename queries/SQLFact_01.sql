@@ -13,21 +13,21 @@ create table DWH.FactSales
     LineTotal decimal not null
 );
 
-select
-    -- top 10
-    h.SalesOrderID,
-    h.OrderDate,
-    h.CustomerID,
-    h.SubTotal,
-    h.TaxAmt,
-    h.Freight,
-    d.OrderQty,
-    d.ProductID,
-    d.UnitPrice,
-    d.UnitPriceDiscount,
-    d.LineTotal
-from SalesLT.SalesOrderHeader h
-    join SalesLT.SalesOrderDetail d
-    on h.SalesOrderID = d.SalesOrderID
---where d.OrderQty is null
-;
+-- select
+--     -- top 10
+--     h.SalesOrderID,
+--     h.OrderDate,
+--     h.CustomerID,
+--     h.SubTotal,
+--     h.TaxAmt,
+--     h.Freight,
+--     d.OrderQty,
+--     d.ProductID,
+--     d.UnitPrice,
+--     d.UnitPriceDiscount,
+--     d.LineTotal
+-- from SalesLT.SalesOrderHeader h
+--     join SalesLT.SalesOrderDetail d
+--     on h.SalesOrderID = d.SalesOrderID
+-- --where d.OrderQty is null
+-- ;
