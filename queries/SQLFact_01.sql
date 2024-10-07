@@ -1,4 +1,5 @@
 select
+    top 10
     h.SalesOrderID,
     h.CustomerID,
     h.SubTotal,
