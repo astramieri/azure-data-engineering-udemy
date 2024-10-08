@@ -35,6 +35,10 @@ A round-robin distributed table distributes table rows evenly across all distrib
 
 Another table storage option is to **replicate** a small table across all the compute nodes. 
 
+**NOTE.** When you don't specify any sort of distribution, the default is the Round-Robin distribution.
+
+Example:
+
 ```
 CREATE TABLE [dbo].[FactInternetSales]
 (   
