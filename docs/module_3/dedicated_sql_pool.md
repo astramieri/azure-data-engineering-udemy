@@ -25,7 +25,7 @@ If you need to persist the data in actual tables and query them via SQL, you nee
 
 ## Hash Distribution tables vs Round-Robin Distribution tables
 
-A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.
+A distributed table appears as a single table, but the rows are actually **stored across 60 distributions**. The rows are distributed with a hash or round-robin algorithm.
 
 **Hash-distribution** improves query performance on large fact tables. **Round-robin distribution** is useful for improving loading speed. These design choices have a significant effect on improving query and loading performance.
 
