@@ -23,27 +23,29 @@ If you need to persist the data in actual tables and query them via SQL, you nee
 
 **NOTE**. In the dedicated SQL pool, in addition to creating our normal tables, you can also create external tables as well.
 
-## Distributed Tables
+## Hash Distribution vs Round-Robin Distribution
 
 A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.
 
 **Hash-distribution** improves query performance on large fact tables. **Round-robin distribution** is useful for improving loading speed. These design choices have a significant effect on improving query and loading performance.
 
-A hash-distributed table has a **distribution column or set of columns that is the hash key**.
+A hash-distributed table distributes table rows across the compute nodes by using a deterministic hash function to assign each row to one distribution. A hash-distributed table has a **distribution column or set of columns that is the hash key**.
+
+A round-robin distributed table distributes table rows evenly across all distributions. The assignment of rows to distributions is random. Unlike hash-distributed tables, rows with equal values are not guaranteed to be assigned to the same distribution. Consider using the round-robin distribution for your table when the table is a **temporary staging table**.
 
 Another table storage option is to **replicate** a small table across all the compute nodes. 
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
 (   
-    [ProductKey]            int          NOT NULL,
-    [OrderDateKey]          int          NOT NULL,
-    [CustomerKey]           int          NOT NULL,
-    [PromotionKey]          int          NOT NULL,
-    [SalesOrderNumber]      nvarchar(20) NOT NULL,
-    [OrderQuantity]         smallint     NOT NULL,
-    [UnitPrice]             money        NOT NULL,
-    [SalesAmount]           money        NOT NULL
+    [ProductKey]        int          NOT NULL,
+    [OrderDateKey]      int          NOT NULL,
+    [CustomerKey]       int          NOT NULL,
+    [PromotionKey]      int          NOT NULL,
+    [SalesOrderNumber]  nvarchar(20) NOT NULL,
+    [OrderQuantity]     smallint     NOT NULL,
+    [UnitPrice]         money        NOT NULL,
+    [SalesAmount]       money        NOT NULL
 )
 WITH
 (   
