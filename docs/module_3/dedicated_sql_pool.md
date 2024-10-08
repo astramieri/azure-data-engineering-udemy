@@ -23,7 +23,7 @@ If you need to persist the data in actual tables and query them via SQL, you nee
 
 **NOTE**. In the dedicated SQL pool, in addition to creating our normal tables, you can also create external tables as well.
 
-## Hash Distribution vs Round-Robin Distribution
+## Hash Distribution tables vs Round-Robin Distribution tables
 
 A distributed table appears as a single table, but the rows are actually stored across 60 distributions. The rows are distributed with a hash or round-robin algorithm.
 
@@ -33,11 +33,7 @@ A hash-distributed table distributes table rows across the compute nodes by usin
 
 A round-robin distributed table distributes table rows evenly across all distributions. The assignment of rows to distributions is random. Unlike hash-distributed tables, rows with equal values are not guaranteed to be assigned to the same distribution. Consider using the round-robin distribution for your table when the table is a **temporary staging table**.
 
-Another table storage option is to **replicate** a small table across all the compute nodes. 
-
 **NOTE.** When you don't specify any sort of distribution, the default is the Round-Robin distribution.
-
-Example:
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
@@ -57,4 +53,13 @@ WITH
     DISTRIBUTION = HASH([ProductKey])
 );
 ```
+
+## Replicated Tables
+
+Another table storage option is to **replicate** a small table across all the compute nodes. 
+
+Replicated tables work well for dimension tables in a star schema. Dimension tables are typically joined to fact tables, which are distributed differently than the dimension table. 
+
+Dimensions are usually of a size that makes it feasible to store and maintain multiple copies.
+
 
