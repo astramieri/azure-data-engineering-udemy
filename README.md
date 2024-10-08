@@ -11,6 +11,7 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 ### 1. Introduction
 
 - [Azure Free Account](./docs/module_1/azure_free_account.md)
+- [Microsoft Entra ID](./docs/module_1/microsoft_entra_id.md)
 
 ### 2. Design and implement data storage
 
@@ -23,6 +24,5 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 - [Azure Synapse](./docs/module_3/azure_synapse.md)
 - [Azure Synapse Workspace](./docs/module_3/azure_synapse_workspace.md)
 - [Dedicated SQL Pool](./docs/module_3/dedicated_sql_pool.md)
-- [Microsoft Entra ID](./docs/module_3/microsoft_entra_id.md)
 - [Transact-SQL](./docs/module_3/transact_sql.md)
 - [PolyBase](./docs/module_3/polybase.md)
