@@ -23,17 +23,20 @@ If you need to persist the data in actual tables and query them via SQL, you nee
 
 **NOTE**. In the dedicated SQL pool, in addition to creating our normal tables, you can also create external tables as well.
 
-## Hash Distribution tables vs Round-Robin Distribution tables
+## Hash Distributed tables
 
-A distributed table appears as a single table, but the rows are actually **stored across 60 distributions**. The rows are distributed with a hash or round-robin algorithm.
+An **Hash Distributed table** distributes table rows across the compute nodes by using a deterministic hash function to assign each row to one distribution. 
 
-**Hash-distribution** improves query performance on large fact tables. **Round-robin distribution** is useful for improving loading speed. These design choices have a significant effect on improving query and loading performance.
+Hash-distribution improves query performance **on large fact tables**. 
 
-A hash-distributed table distributes table rows across the compute nodes by using a deterministic hash function to assign each row to one distribution. A hash-distributed table has a **distribution column or set of columns that is the hash key**.
+A hash-distributed table has a **distribution column or set of columns that is the hash key**.
 
-A round-robin distributed table distributes table rows evenly across all distributions. The assignment of rows to distributions is random. Unlike hash-distributed tables, rows with equal values are not guaranteed to be assigned to the same distribution. Consider using the round-robin distribution for your table when the table is a **temporary staging table**.
+To balance the parallel processing, select a distribution column or set of columns that:
+- **Has many unique values**. One or more distribution columns can have duplicate values. All rows with the same value are assigned to the same distribution. Since there are 60 distributions, some distributions can have > 1 unique values while others can end with zero values.
+- **Does not have NULLs, or has only a few NULLs**. For an extreme example, if all values in the distribution columns are NULL, all the rows are assigned to the same distribution. As a result, query processing is skewed to one distribution, and does not benefit from parallel processing.
+- **Is not a date column**. All data for the same date lands in the same distribution, or will cluster records by date. If several users are all filtering on the same date (such as today's date), then only 1 of the 60 distributions does all the processing work.
 
-**NOTE.** When you don't specify any sort of distribution, the default is the Round-Robin distribution.
+### Example
 
 ```
 CREATE TABLE [dbo].[FactInternetSales]
@@ -54,11 +57,19 @@ WITH
 );
 ```
 
+## Round-Robin Distributed tables
+
+A **Round-Robin distributed table** distributes table rows evenly across all distributions. The assignment of rows to distributions is random. 
+
+Unlike hash-distributed tables, rows with equal values are not guaranteed to be assigned to the same distribution. Consider using the round-robin distribution for your table when the table is a **temporary staging table**.
+
+**NOTE.** When you don't specify any sort of distribution, the default is the Round-Robin distribution.
+
 ## Replicated Tables
 
-Another table storage option is to **replicate** a small table across all the compute nodes. 
+Another table storage option is to replicate a small table across all the compute nodes. 
 
-Replicated tables work well for dimension tables in a star schema. Dimension tables are typically joined to fact tables, which are distributed differently than the dimension table. 
+**Replicated tables work well for dimension tables in a star schema**. Dimension tables are typically joined to fact tables, which are distributed differently than the dimension table. 
 
 Dimensions are usually of a size that makes it feasible to store and maintain multiple copies.
 
