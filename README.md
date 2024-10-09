@@ -26,3 +26,4 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 - [Dedicated SQL Pool](./docs/module_3/dedicated_sql_pool.md)
 - [Transact-SQL](./docs/module_3/transact_sql.md)
 - [PolyBase](./docs/module_3/polybase.md)
+- [Slowly Changing Dimension (SCD)](./docs/module_3/scd.md)
