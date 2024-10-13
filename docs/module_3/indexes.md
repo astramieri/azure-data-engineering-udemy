@@ -6,7 +6,7 @@ Dedicated SQL pool offers several indexing options including **clustered columns
 
 By default, dedicated SQL pool creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression and the best overall query performance. 
 
-Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables. For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.
+Clustered columnstore tables will generally outperform clustered index or heap tables and are usually **the best choice for large tables**. For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.
 
 ```
 CREATE TABLE myTable
@@ -28,9 +28,9 @@ There are a few scenarios where clustered columnstore may not be a good option:
 
 ## Clustered and nonclustered indexes
 
-Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved. For queries where a single or very few row lookup is required to perform with extreme speed, consider a clustered index or nonclustered secondary index. 
+Clustered indexes may outperform clustered columnstore tables when a **single row needs to be quickly retrieved**. For queries where a single or very few row lookup is required to perform with extreme speed, consider a clustered index or nonclustered secondary index. 
 
-The disadvantage to using a clustered index is that only queries that benefit are the ones that use a highly selective filter on the clustered index column. To improve filter on other columns, a nonclustered index can be added to other columns. However, each index that is added to a table adds both space and processing time to loads.
+The disadvantage to using a clustered index is that only queries that benefit are the ones that use a highly selective filter on the clustered index column. **To improve filter on other columns, a nonclustered index can be added to other columns**. However, each index that is added to a table adds both space and processing time to loads.
 
 ```
 CREATE TABLE myTable
