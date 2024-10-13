@@ -23,3 +23,7 @@ WITH
     )
 );
 ```
+
+## Partition switching
+
+Dedicated SQL pool supports partition splitting, merging, and switching. Each of these functions is executed using the ALTER TABLE statement.
