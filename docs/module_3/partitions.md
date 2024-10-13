@@ -1,0 +1,9 @@
+# Partitions
+
+Table partitions enable you to divide your data into smaller groups of data. In most cases, table partitions are created on a date column. 
+
+Partitioning is supported on all dedicated SQL pool table types including clustered columnstore, clustered index, and heap. 
+
+Partitioning is also supported on all distribution types, including both hash or round robin distributed.
+
+**NOTE**. While partitioning can be used to improve performance some scenarios, creating a table with too many partitions can hurt performance under some circumstances. These concerns are especially true for clustered columnstore tables.

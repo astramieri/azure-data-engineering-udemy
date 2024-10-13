@@ -28,4 +28,5 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 - [PolyBase](./docs/module_3/polybase.md)
 - [Slowly Changing Dimension (SCD)](./docs/module_3/scd.md)
 - [Indexes](./docs/module_3/indexes.md)
+- [Partitions](./docs/module_3/partitions.md)
 - [Loading Data](./docs/module_3/loading_data.md)
