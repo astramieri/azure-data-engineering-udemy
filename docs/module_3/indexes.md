@@ -4,7 +4,7 @@ Dedicated SQL pool offers several indexing options including **clustered columns
 
 ## Clustered Columnstore indexes
 
-By default, dedicated SQL pool creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression and the best overall query performance. 
+By default, dedicated SQL pool creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the **highest level of data compression** and the **best overall query performance**. 
 
 Clustered columnstore tables will generally outperform clustered index or heap tables and are usually **the best choice for large tables**. For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.
 
