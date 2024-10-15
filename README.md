@@ -30,3 +30,7 @@ Note-taking repository for Azure Data Engineering Udemy course by Alan Rodriguez
 - [Indexes](./docs/module_3/indexes.md)
 - [Partitions](./docs/module_3/partitions.md)
 - [Loading Data](./docs/module_3/loading_data.md)
+
+### 4. Design and develop data processing
+
+- [Azure Data Factory](./docs/module_4/azure_data_factory.md)
