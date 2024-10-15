@@ -39,6 +39,10 @@ Data Factory supports three types of activities:
 - data transformation activities
 - control activities
 
+## Datasets
+
+Datasets represent data structures within the data stores, which simply point to or reference the data you want to use in your activities as inputs or outputs.
+
 ## Linked services
 
 Linked services are much like **connection strings**, which define the connection information that's needed for Azure Data Factory to connect to external resources.
